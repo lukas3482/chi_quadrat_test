@@ -1,0 +1,49 @@
+# ESP-IDF build files
+/build/
+/*.bin
+/*.elf
+/*.map
+/project_description.json
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# VS Code settings
+.vscode/
+
+# Python virtual environments
+.env/
+.venv/
+env/
+venv/
+__pycache__/
+
+# IDF environment
+idf.py
+*.pyc
+
+# ESP-IDF generated config
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults
+
+# Optional: log and dump files
+*.log
+*.dmp
+
+# Optional: backup files
+*~
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Windows-specific
+Thumbs.db
+Desktop.ini
+
+# macOS-specific
+.DS_Store
