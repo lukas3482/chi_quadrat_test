@@ -46,7 +46,6 @@ void testRNG(uint32_t obervations, uint32_t m){
 }
 
 
-
 // Main
 void app_main(void){
     switchOnRtc20MClk();
