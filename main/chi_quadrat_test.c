@@ -21,6 +21,8 @@ volatile uint32_t* pRngDataReg = (volatile uint32_t*) (RNG_BASE | RNG_DATA_REG_O
 // Pointer zu Config (Bit 10 muss auf 1 gesetzt werden -> RTC_CNTL_DIG_FOSC_EN)
 volatile uint32_t* pRtcCntlClkConfReg = (volatile uint32_t*) (LOWPOWER_MGR_BASE | RTC_CNTL_CLK_CONF_REG);
 
+static void testRNG(uint32_t obervations, uint32_t m);
+
 inline uint32_t nextRand(){
     return *pRngDataReg;
 }
@@ -28,7 +30,6 @@ inline uint32_t nextRand(){
 inline void switchOnRtc20MClk(){
     *pRtcCntlClkConfReg |= RTC_CNTL_DIG_FOSC_EN;
 }
-
 
 void testRNG(uint32_t obervations, uint32_t m){
     uint32_t* n = calloc(m, sizeof(uint32_t));
@@ -51,7 +52,7 @@ void app_main(void){
     switchOnRtc20MClk();
 
     while(1){
-        testRNG(10, 10);
+        testRNG(1000000, 10);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
